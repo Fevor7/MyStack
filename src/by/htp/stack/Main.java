@@ -11,10 +11,14 @@ public class Main {
 	private static void workWithMyStack(){
 		Person person = new Person();
 		MyStack<Person> stack = new MyStack<Person> ();
+		Person pers = new Person("Vasya", 18);
+		Person pers2 = new Person("Sasha", 27);
 		stack.add(new Person("Petya", 21));
-		stack.add(new Person("Sasha", 27));
-		stack.add(new Person("Vasya", 18));
+		stack.add(pers2);
+		stack.add(pers);
 		stack.push(new Person("Sveta", 20));
+		System.out.println(stack.search(pers2));
+		
 		for (int i = 0; i<stack.size(); i++){
 			System.out.println(stack.get(i));
 		}

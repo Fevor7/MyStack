@@ -77,6 +77,17 @@ public class MyStack<E> {
 		size++;
 	}
 
+	public int search(E e) {
+		Element<E> el = first;
+		for (int i = 0; i < size; i++) {
+			if (e.equals(el.e)) {
+				return i;
+			}
+			el = el.next;
+		}
+		return -1;
+	}
+
 	private class Element<E> {
 		private E e;
 		private Element<E> next;
