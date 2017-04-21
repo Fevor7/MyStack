@@ -9,13 +9,16 @@ public class Main {
 		workWithMyStack();
 	}
 	private static void workWithMyStack(){
-		Person person = new Person("Vasya", 18);
-		MyStack<Person> stack = new MyStack<Person> (person);
+		Person person = new Person();
+		MyStack<Person> stack = new MyStack<Person> ();
 		stack.add(new Person("Petya", 21));
-		stack.add(new Person("Vitya", 27));
-		for (int i =0; i<stack.size(); i++){
+		stack.add(new Person("Sasha", 27));
+		stack.add(new Person("Vasya", 18));
+		stack.push(new Person("Sveta", 20));
+		for (int i = 0; i<stack.size(); i++){
 			System.out.println(stack.get(i));
 		}
 		Stack<Person> st = new Stack<Person> ();
+		
 	}
 }

@@ -8,7 +8,7 @@ public class MyStack<E> {
 	public MyStack() {
 		size = 0;
 		first = null;
-		element = new Element<E>();
+		element = null;
 	}
 
 	public MyStack(E e) {
@@ -28,21 +28,55 @@ public class MyStack<E> {
 	}
 
 	public E get(int number) {
-		if ((number>=0)&&(number<size)) {
+		if ((number >= 0) && (number < size)) {
 			Element<E> el = first;
-			if(number==0) {
+			if (number == 0) {
 				return el.e;
 			}
-			for (int i = 1; i <size; i++ ){
-				el=el.next;
-				return el.e;
+			for (int i = 0; i < number; i++) {
+				el = el.next;
 			}
+			return el.e;
 		}
 		return null;
 	}
-	public int size(){
+
+	public int size() {
 		return size;
 	}
+
+	public boolean empty() {
+		if (size == 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public E peek() {
+		return first.e;
+	}
+
+	public E pop() {
+		E e = first.e;
+		if (size == 1) {
+			size = 0;
+			first = null;
+			element = null;
+		} else {
+			Element<E> el = first;
+			first = el.next;
+			size--;
+		}
+		return e;
+	}
+
+	public void push(E e) {
+		Element<E> el = first;
+		first = new Element<E>(e);
+		first.next = el;
+		size++;
+	}
+
 	private class Element<E> {
 		private E e;
 		private Element<E> next;
